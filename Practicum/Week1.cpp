@@ -290,7 +290,8 @@ void sortByGrade(Group &gr)
                 maxIndex = j;
             }
         }
-        std::swap(gr.group[i], gr.group[maxIndex]);
+        if (maxIndex != i)
+            std::swap(gr.group[i], gr.group[maxIndex]);
     }
 }
 
