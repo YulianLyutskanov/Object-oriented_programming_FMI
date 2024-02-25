@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <iostream>
 
 using std::cout;
@@ -53,7 +54,10 @@ void printStudent(const Student &st)
 }
 
 void printDatabase(const StudentDatabase &db)
+
 {
+    assert(db.studentsCount <= MAX_STUDENTS_COUT);
+
     for (size_t i = 0; i < db.studentsCount; i++)
     {
         printStudent(db.students[i]);
