@@ -1,9 +1,9 @@
 #include "MultiSet.h"
 
-MultiSet::MultiSet(int n)
+MultiSet::MultiSet(unsigned n)
 {
-    _buckets = new uint8_t[n]{0};
     _bucketsCount = n / _elementsInBucket + 1;
+    _buckets = new uint8_t[_bucketsCount]{0};
     _maxNumber = n - 1;
 }
 
@@ -37,6 +37,7 @@ void MultiSet::free()
 
 void MultiSet::copyFrom(const MultiSet &other)
 {
+    _buckets = new uint8_t[other._bucketsCount];
     for (unsigned i = 0; i < other._bucketsCount; i++)
     {
         _buckets[i] = other._buckets[i];
